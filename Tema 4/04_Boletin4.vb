@@ -1,4 +1,5 @@
-﻿Module Module1
+﻿Option Strict On
+Module Module1
 
     Sub Main()
         Dim ejercicio As Integer
@@ -90,12 +91,58 @@
                     Loop While m < 0
 
                     'suma = 1 + 2 + 3 + ... m
-
+                    'reiniciar la suma a cero
+                    suma = 0
                     For i As Integer = 1 To m Step 1
                         suma = suma + i
                     Next
 
                     Console.WriteLine("La suma de los " & m & " primeros números es : " & suma)
+
+                Case 11
+                    Dim n As Integer = 100
+                    Dim suma As Double = 0
+
+                    For i As Integer = 1 To n Step 1
+                        suma = suma + 1 / Math.Pow(i, 3)
+                    Next
+
+                    Console.WriteLine("La suma es " & suma)
+
+                Case 12
+                    Dim n As Integer
+                    Dim suma As Integer = 0
+                    Do
+                        Console.WriteLine("Intro numero positivo")
+                        n = Convert.ToInt32(Console.ReadLine())
+
+                    Loop While n < 0
+
+                    For i As Integer = 1 To Convert.ToInt32(n / 2) Step 1
+                        If n Mod i = 0 Then
+                            'suma = suma + i
+                            suma += i
+                        End If
+                    Next
+                    'Si quiero sumar n
+                    suma += n
+                    Console.WriteLine("La suma de los divisores es : " & suma)
+
+                Case 17
+                    'Contar los divisores
+
+                    Dim n As Integer = 14
+                    Dim contador As Integer = 1 'Inicializo a 1 para contar n , ya que en el bucle no llego hasta n
+
+                    For i As Integer = 1 To Convert.ToInt32(n / 2) Step 1
+                        If n Mod i = 0 Then
+                            contador = contador + 1
+                        End If
+                    Next
+
+                    Console.WriteLine(n & " tiene " & contador & " divisores")
+
+
 
 
 
