@@ -127,6 +127,22 @@ Module Module1
                     'Si quiero sumar n
                     suma += n
                     Console.WriteLine("La suma de los divisores es : " & suma)
+                Case 15
+                    Dim numero As Integer = 3
+                    Dim factorial As Long = 1
+                    'factorial de n = n*(n-1)*(n-2)...*1
+
+                    Dim i As Integer = numero
+
+                    While i >= 1
+
+                        factorial = factorial * i
+
+                        i = i - 1
+                    End While
+
+                    Console.WriteLine(factorial)
+
 
                 Case 17
                     'Contar los divisores
@@ -142,16 +158,32 @@ Module Module1
 
                     Console.WriteLine(n & " tiene " & contador & " divisores")
 
+                Case 18
+                    Dim numero As Integer = 9
+                    Dim contador As Integer = 0
+                    Dim primo As Boolean = True
 
+                    For i As Integer = 2 To Convert.ToInt32(numero / 2) Step 1
+                        If numero Mod i = 0 Then
+                            primo = False
+                            Exit For
 
+                        End If
+                    Next
 
+                    If primo Then
+                        Console.WriteLine("Primo")
+                    Else
+                        Console.WriteLine("No primo")
+                    End If
 
             End Select
 
             Console.WriteLine("Desea continuar s/n")
             continuar = Convert.ToChar(Console.ReadLine())
+
             Console.Clear()
-        Loop While continuar = "s"c
+        Loop While continuar = "s"
         Console.ReadLine()
     End Sub
 
