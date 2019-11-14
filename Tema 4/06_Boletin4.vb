@@ -127,6 +127,28 @@ Module Module1
                     'Si quiero sumar n
                     suma += n
                     Console.WriteLine("La suma de los divisores es : " & suma)
+
+                Case 13
+                    Dim numero As Integer
+                    Dim suma As Integer = 0
+
+                    Console.WriteLine("Intro numero:")
+                    numero = Convert.ToInt32(Console.ReadLine())
+
+                    For i As Integer = 1 To Convert.ToInt32(numero / 2) Step 1
+                        If numero Mod i = 0 Then
+                            suma = suma + i
+                        End If
+                    Next
+
+                    'Perfecto = suma de sus divisores
+                    If numero = suma Then
+                        Console.WriteLine("Perfecto")
+                    Else
+                        Console.WriteLine("No perfecto")
+                    End If
+
+
                 Case 15
                     Dim numero As Integer = 3
                     Dim factorial As Long = 1
@@ -176,6 +198,40 @@ Module Module1
                     Else
                         Console.WriteLine("No primo")
                     End If
+
+                Case 19
+                    Dim n, m As Integer
+                    Dim multiplos As Boolean = False
+                    Console.WriteLine("Introduzca limite inferior")
+                    n = Convert.ToInt32(Console.ReadLine())
+                    Console.WriteLine("Introduzca limite superior")
+                    m = Convert.ToInt32(Console.ReadLine())
+
+                    'Detectar el primer número que sea múltiplo de 3 , 5 y 7 a la vez
+
+                    For i As Integer = n To m Step 1
+                        If i Mod 3 = 0 And i Mod 5 = 0 And i Mod 7 = 0 Then
+                            multiplos = True
+                            Console.WriteLine(i & " primer múltiplo de 3 , 5 y 7")
+                            Exit For
+                        End If
+                    Next
+
+                    If Not multiplos Then
+                        Console.WriteLine("No hay múltiplos de 3,5 y 7 a la vez")
+                    End If
+                    'Mismo algoritmo con un while para que repaséis
+                    Dim j As Integer = n
+                    While j <= m
+                        If j Mod 3 = 0 And j Mod 5 = 0 And j Mod 7 = 0 Then
+                            Console.WriteLine(j & " primer múltiplo de 3 , 5 y 7")
+                            Exit While
+                        End If
+                        j += 1
+                    End While
+
+
+
 
             End Select
 
