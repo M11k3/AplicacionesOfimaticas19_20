@@ -230,6 +230,155 @@ Module Module1
                         j += 1
                     End While
 
+                Case 21
+                    'Tabla de multiplicar de los n primeros números
+
+                    'Tabla de multiplicar del 1
+
+                    ' Dim n As Integer = 5
+                    For j As Integer = 0 To 10 Step 1
+                        Console.WriteLine("Alexandre esta es la tabla del " & j)
+                        For i As Integer = 1 To 10 Step 1
+                            Console.WriteLine(i & " * " & j & " = " & j * i)
+                        Next
+                        Console.WriteLine("***************")
+                    Next
+
+
+
+
+
+
+                Case 22
+
+                    'a) 
+
+                    '********
+                    '*******
+                    '*****
+                    '***
+                    Dim locura As Integer = 7
+                    For j As Integer = 0 To 7 Step 1
+                        For i As Integer = 0 To locura Step 1
+                            Console.Write("* ")
+                        Next
+                        Console.WriteLine()
+                        locura -= 1
+                    Next
+                    Console.WriteLine()
+                    'b)
+                    For i As Integer = 1 To 9 Step 1
+                        For j As Integer = 1 To i Step 1
+                            Console.Write("* ")
+                        Next
+                        Console.WriteLine()
+                    Next
+                    'c)
+
+
+                    'd)
+                    For i As Integer = 9 To 1 Step -1
+                        For j As Integer = 1 To i Step 1
+                            Console.Write(j & " ")
+                        Next
+                        Console.WriteLine()
+                    Next
+                Case 23
+
+                    Dim n As Integer = 90000000 'Limite superior 
+                    Dim suma As Integer = 0
+
+                    'Obtener suma divisores
+                    For k As Integer = 6 To n Step 1
+                        'Resetear el la suma que viene viciada de la iteración anterior
+                        suma = 0
+                        For i As Integer = 1 To Convert.ToInt32(k / 2) Step 1
+                            If k Mod i = 0 Then
+                                suma = suma + i
+                            End If
+                        Next
+                        'Es perfecto si suma = n
+
+                        If suma = k Then
+                            Console.WriteLine(k & " es perfecto")
+                        End If
+
+                    Next
+                Case 24
+                    Dim n As Integer = 0
+                    Dim contadorDivisores, contadorPrimos As Integer
+                    Console.WriteLine("Introduzca n")
+                    n = Convert.ToInt32(Console.ReadLine())
+
+                    contadorPrimos = 0
+                    contadorDivisores = 0
+                    Console.WriteLine("Números primos por debajo de " & n)
+                    For i As Integer = 3 To n Step 1
+                        'Reiniciar contador divisores
+                        contadorDivisores = 0
+                        For k As Integer = 2 To i - 1 Step 1
+                            If i Mod k = 0 Then
+                                contadorDivisores += 1
+                                Exit For
+                            End If
+                        Next
+                        If contadorDivisores = 0 Then
+                            contadorPrimos += 1
+                            Console.Write(i & " ")
+                        End If
+                    Next
+                    Console.WriteLine()
+                Case 25
+                    Dim contadorPositivos As Integer = 0
+                    Dim contadorNegativos As Integer = 0
+                    Dim contadorRango As Integer = 0
+                    'Generar numeros aleatorios
+                    Dim aleatorio As Random = New Random()
+                    For k As Integer = 1 To 10 Step 1
+                        contadorPositivos = 0
+                        contadorNegativos = 0
+                        Console.ForegroundColor = ConsoleColor.White
+                        For i As Integer = 1 To 10 Step 1
+
+                            Dim z As Integer = aleatorio.Next(-5, 6)
+                            Console.Write(z & " ")
+
+                            If z >= 0 Then
+                                contadorPositivos += 1
+                            Else
+                                contadorNegativos += 1
+                            End If
+                            If z < 2 And z > -2 Then
+                                contadorRango += 1
+                            End If
+
+                        Next
+                        Console.ForegroundColor = ConsoleColor.Yellow
+                        Console.WriteLine()
+
+                        Console.WriteLine("     numeros positivos: " & contadorPositivos)
+                        Console.WriteLine("     numeros negativos: " & contadorNegativos)
+                        Dim porcentaje As Double = (contadorRango / 10) * 100
+                        Console.WriteLine("     Porcentaje entre -2 y 2: " & contadorRango & " %")
+                    Next
+
+                    Console.WriteLine()
+
+                Case 26
+                    'Explicación While
+                    'Suma de los n primeros números
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
