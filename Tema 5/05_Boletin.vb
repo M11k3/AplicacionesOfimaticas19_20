@@ -3,7 +3,7 @@ Module Module1
 
     Sub Main()
 
-        Dim ejercicio As Integer = 2
+        Dim ejercicio As Integer = 3
 
         Select Case ejercicio
             Case 1
@@ -60,6 +60,51 @@ Module Module1
 
 
                 Console.WriteLine("La nueva media es : " & media)
+
+            Case 3
+                'Desviación media de cada elemento
+                Dim temperaturas() As Double = {3.5, 10.9, 6.9, 9.3}
+
+                'Calcular la media
+                Dim suma As Double = 0
+                Dim temperaturaMedia As Double = 0
+
+                For i As Integer = 0 To temperaturas.Length - 1 Step 1
+                    suma = suma + temperaturas(i)
+                Next
+
+                temperaturaMedia = suma / temperaturas.Length
+                Console.WriteLine("La temperatura media es : " & temperaturaMedia)
+                'Calcular las desviaciones
+                Dim desviacion As Double
+                Dim sumaDesviaciones As Double = 0
+                Dim desviacionMedia As Double
+                Console.WriteLine("Desviaciones respecto a la media:")
+                For i As Integer = 0 To temperaturas.Length - 1 Step 1
+                    desviacion = Math.Abs(temperaturas(i) - temperaturaMedia)
+                    sumaDesviaciones = sumaDesviaciones + desviacion
+                    Console.WriteLine("Desviacion elemento(" & i & ") = " & desviacion)
+                Next
+
+                desviacionMedia = sumaDesviaciones / temperaturas.Length
+
+                Console.WriteLine("La desviacion media : " & desviacionMedia)
+
+            Case 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
