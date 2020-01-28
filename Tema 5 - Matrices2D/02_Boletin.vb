@@ -3,7 +3,7 @@ Module Module1
 
     Sub Main()
 
-        Dim ejercicio As Integer = 8
+        Dim ejercicio As Integer = 13
 
         Select Case ejercicio
             Case 1
@@ -142,7 +142,6 @@ Module Module1
 
                 Dim simetrica As Boolean = True
 
-#Region "Algoritmo matriz simétrica"
 
                 For i As Integer = 0 To matriz.GetUpperBound(0) Step 1
                     For j As Integer = 0 To matriz.GetUpperBound(1) Step 1
@@ -270,33 +269,114 @@ Module Module1
                 escribirMatriz2D(suma)
 
 
-                'For i As Integer = 0 To suma.GetUpperBound(0)
-                '    For j As Integer = 0 To suma.GetUpperBound(1)
-                '        Console.Write(suma(i, j) & " ")
-                '    Next
-                '    Console.WriteLine()
-                'Next
+            Case 11
+                Dim filas, columnas As Integer
 
+                Console.WriteLine("Introduce número filas:")
+                filas = Convert.ToInt32(Console.ReadLine())
 
+                Console.WriteLine("Introduce columnas:")
+                columnas = Convert.ToInt32(Console.ReadLine())
 
+                'Creo la matriz
+                Dim matriz(filas - 1, columnas - 1) As Integer
+                'Llenarla con números aleatorios
 
+                Dim aleatorio As Random = New Random()
 
+                For i As Integer = 0 To matriz.GetUpperBound(0) Step 1
+                    For j As Integer = 0 To matriz.GetUpperBound(1) Step 1
+                        'Guardo valores entre 80 y 120
+                        matriz(i, j) = aleatorio.Next(80, 121)
+                    Next
+                Next
+                'Mostrar matriz original
+                escribirMatriz2D(matriz)
+                Dim encontrado As Boolean = False
+                'Detectar el primer valor > 100 y pasarlo para la última posición
+                For i As Integer = 0 To matriz.GetUpperBound(0) Step 1
+                    For j As Integer = 0 To matriz.GetUpperBound(1) Step 1
+                        If matriz(i, j) > 100 Then
+                            encontrado = True
+                            Dim auxiliar As Integer = matriz(i, j)
 
+                            Dim ultimaFila As Integer = matriz.GetUpperBound(0)
+                            Dim ultimaColumna As Integer = matriz.GetUpperBound(1)
+                            matriz(i, j) = matriz(ultimaFila, ultimaColumna)
+                            matriz(ultimaFila, ultimaColumna) = auxiliar
+                            Exit For
+                        End If
+                    Next
+                    If encontrado Then
+                        Exit For
+                    End If
+                Next
 
+                Console.WriteLine("Matriz después del intercambio")
+                Console.ForegroundColor = ConsoleColor.Yellow
+                escribirMatriz2D(matriz)
 
-#End Region
+            Case 12
+                Dim matriz12(,) As Integer = {{1, 0, 6, 0}, {3, 2, 0, 0}, {4, 9, 8, 0}, {1, 3, 4, 5}}
+                Dim triangularInferior As Boolean = True
+                Dim triangularSuperior As Boolean = True
+                For i As Integer = 0 To matriz12.GetUpperBound(0) Step 1
+                    For j As Integer = 0 To matriz12.GetUpperBound(1) Step 1
+                        If i < j Then
+                            If matriz12(i, j) <> 0 Then
+                                triangularInferior = False
+                                Exit For
+                            End If
+                        End If
+                    Next
+                    If triangularInferior = False Then
+                        Exit For
+                    End If
+                Next
 
+                For i As Integer = 0 To matriz12.GetUpperBound(0) Step 1
+                    For j As Integer = 0 To matriz12.GetUpperBound(1) Step 1
+                        If i > j Then
+                            If matriz12(i, j) <> 0 Then
+                                triangularSuperior = False
+                                Exit For
+                            End If
+                        End If
+                    Next
+                    If triangularSuperior = False Then
+                        Exit For
+                    End If
+                Next
 
+                If triangularSuperior Then
 
+                End If
 
+                If triangularInferior Then
+                    Console.WriteLine("Triangular inferior")
+                Else
+                    Console.WriteLine("No es triangular inferior")
+                End If
 
+            Case 13
+                Dim matriz13(,) As Integer = {{1, 2, 3}, {4, 5, 6}, {8, 9, 0}}
 
+                'Verificar si es cuadrada
+                If matriz13.GetUpperBound(0) = matriz13.GetUpperBound(1) Then
 
-
-
-
-
-
+                    For i As Integer = 0 To matriz13.GetUpperBound(0) Step 1
+                        For j As Integer = 0 To matriz13.GetUpperBound(1) Step 1
+                            If i = j Then
+                                Console.ForegroundColor = ConsoleColor.Red
+                                Console.Write(matriz13(i, j) & " ")
+                            Else
+                                ' Console.ForegroundColor = ConsoleColor.White
+                                Console.Write(matriz13(i, j) & " ")
+                            End If
+                        Next
+                        Console.WriteLine()
+                    Next
+                End If
 
 
 
