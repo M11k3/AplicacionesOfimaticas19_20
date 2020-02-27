@@ -4,8 +4,10 @@ Module Module1
 
     Sub Main()
         Dim cadena As String = " 12345678A*Manuel Sanchez Fernandez*manusa@gmasil.com*45 "
+        'indexOf(c as Char)--> Devuelve la posición de la primera aparición de un caracter
         Dim posPrimerAsterisco As Integer = cadena.IndexOf("*")
         Dim posSegundoAsterisco As Integer = cadena.IndexOf("*", posPrimerAsterisco + 1)
+        'substring(index as Integer)-->Devuelve los caracteres desde el índice indicado hasta el final
         Dim dni As String = cadena.Substring(0, posPrimerAsterisco)
         Dim nombre As String = cadena.Substring(posPrimerAsterisco + 1, posSegundoAsterisco - posPrimerAsterisco - 1)
         Console.WriteLine("El dni es : " & dni)
